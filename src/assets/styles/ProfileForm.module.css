@@ -1,0 +1,29 @@
+.form {
+   display: grid;
+   gap: 14px;
+   margin-top: 8px;
+}
+.field {
+   display: grid;
+   gap: 6px;
+}
+.label {
+   font-size: 13px;
+   opacity: 0.8;
+}
+.input {
+   width: 100%;
+   padding: 10px 12px;
+   border: 1px solid #ddd;
+   border-radius: 10px;
+   background: #fff;
+   box-sizing: border-box;
+}
+.actions {
+   display: flex;
+   gap: 10px;
+}
+.msg {
+   font-size: 14px;
+   opacity: 0.85;
+}

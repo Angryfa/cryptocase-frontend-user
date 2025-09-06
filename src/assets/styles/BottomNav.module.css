@@ -1,0 +1,20 @@
+.wrap {
+   position: sticky;
+   bottom: 0;
+   background: #fff;
+   border-top: 1px solid #eee;
+   z-index: 10;
+}
+.bar {
+   display: flex;
+   gap: 20px;
+   padding: 10px 0;
+}
+.link {
+   text-decoration: none;
+   color: #333;
+}
+.active {
+   font-weight: 700;
+   border-bottom: 2px solid #111;
+}

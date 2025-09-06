@@ -1,0 +1,49 @@
+.box {
+   display: grid;
+   gap: 10px;
+}
+.row {
+   display: grid;
+   gap: 6px;
+}
+.label {
+   font-size: 13px;
+   opacity: 0.8;
+}
+.linkWrap {
+   display: flex;
+   gap: 8px;
+}
+.input {
+   flex: 1;
+   padding: 10px 12px;
+   border: 1px solid #ddd;
+   border-radius: 10px;
+}
+.copy {
+   padding: 10px 12px;
+   border: 1px solid #ddd;
+   border-radius: 10px;
+   background: #fff;
+   cursor: pointer;
+}
+.stats {
+   display: flex;
+   gap: 12px;
+}
+.stat {
+   background: #fafafa;
+   border: 1px solid var(--line);
+   border-radius: 10px;
+   padding: 8px 12px;
+   display: flex;
+   gap: 6px;
+   align-items: center;
+}
+.stat span {
+   font-size: 12px;
+   opacity: 0.8;
+}
+.stat b {
+   font-size: 16px;
+}

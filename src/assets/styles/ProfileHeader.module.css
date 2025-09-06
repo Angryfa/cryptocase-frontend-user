@@ -1,0 +1,26 @@
+.headerRow {
+   display: flex;
+   align-items: center;
+   gap: 14px;
+   margin-bottom: 12px;
+}
+.avatar {
+   width: 56px;
+   height: 56px;
+   border-radius: 50%;
+   background: #eee;
+   border: 1px solid #e5e5e5;
+}
+.idBlock {
+   display: grid;
+   gap: 2px;
+}
+.nick {
+   font-weight: 700;
+   font-size: 18px;
+   color: #111;
+}
+.email {
+   font-size: 14px;
+   opacity: 0.8;
+}

@@ -1,0 +1,8 @@
+.wrap {
+   min-height: 100svh;
+   display: flex;
+   flex-direction: column;
+}
+.grow {
+   flex: 1;
+}
