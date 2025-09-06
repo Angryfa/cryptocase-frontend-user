@@ -1,6 +1,6 @@
 import s from "../../assets/styles/WalletStats.module.css";
 
-const fmtUSD = (v) => (v === null || v === undefined ? "0.00" : String(v));
+const fmtUSD = (v) => (v == null ? "0.00" : Number(v).toFixed(2));
 
 export default function WalletStats({ profile }) {
    return (
@@ -20,6 +20,10 @@ export default function WalletStats({ profile }) {
          <div className={s.stat}>
             <div className={s.title}>Проиграно</div>
             <div className={s.value}>${fmtUSD(profile?.lost_total_usd)}</div>
+         </div>
+         <div className={s.stat}>
+            <div className={s.title}>Выведено (всего)</div>
+            <div className={s.value}>${fmtUSD(profile?.withdrawn_total_usd)}</div>
          </div>
       </div>
    );
