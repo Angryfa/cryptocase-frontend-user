@@ -13,6 +13,8 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ProfilePage from "./pages/ProfilePage";
 import CasesPage from "./pages/CasesPage";
+import TicketsPage from "./pages/TicketsPage";
+import TicketChatPage from "./pages/TicketChatPage";
 
 import ScrollToTop from "./components/ScrollToTop";
 import RequireAuth from "./components/RequireAuth";
@@ -35,6 +37,22 @@ function App() {
                         element={
                            <RequireAuth>
                               <ProfilePage />
+                           </RequireAuth>
+                        }
+                     />
+                     <Route
+                        path="/tickets"
+                        element={
+                           <RequireAuth>
+                              <TicketsPage />
+                           </RequireAuth>
+                        }
+                     />
+                     <Route
+                        path="/tickets/:id"
+                        element={
+                           <RequireAuth>
+                              <TicketChatPage />
                            </RequireAuth>
                         }
                      />

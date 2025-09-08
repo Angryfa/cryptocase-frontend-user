@@ -137,8 +137,9 @@ export function AuthProvider({ children }) {
 
    // Единая обёртка fetch с авто-Authorization и ретраем после refresh
    const authFetch = async (url, init = {}, _retry = false) => {
+      const isFormData = typeof FormData !== "undefined" && init?.body instanceof FormData;
       const headers = new Headers(init.headers || {});
-      if (!headers.has("Content-Type")) headers.set("Content-Type", "application/json");
+      if (!isFormData && !headers.has("Content-Type")) headers.set("Content-Type", "application/json");
       if (accessToken) headers.set("Authorization", `Bearer ${accessToken}`);
 
       const res = await fetch(`${API_BASE}${url}`, { ...init, headers });
@@ -147,7 +148,7 @@ export function AuthProvider({ children }) {
       const newAccess = await silentRefresh();
       if (!newAccess) return res; // не удалось — вернём 401
       const retryHeaders = new Headers(init.headers || {});
-      if (!retryHeaders.has("Content-Type")) retryHeaders.set("Content-Type", "application/json");
+      if (!isFormData && !retryHeaders.has("Content-Type")) retryHeaders.set("Content-Type", "application/json");
       retryHeaders.set("Authorization", `Bearer ${newAccess}`);
       return fetch(`${API_BASE}${url}`, { ...init, headers: retryHeaders });
    };

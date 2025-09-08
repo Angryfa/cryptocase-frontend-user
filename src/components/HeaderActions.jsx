@@ -31,10 +31,11 @@ export default function HeaderActions() {
             </>
          ) : (
             <>
-               <span className={s.balance}>${fmt(profile?.balance_usd)}</span>
+               <Link to="/tickets" className={root.btn}>Тикеты</Link>
                <Link to="/profile" className={`${root.btnPrimary} ${s.nick}`}>
                   {nicknameFromUser(user)}
                </Link>
+               <span className={s.balance}>${fmt(profile?.balance_usd)}</span>
                <button className={root.btn} onClick={handleLogout}>Выйти</button>
             </>
          )}

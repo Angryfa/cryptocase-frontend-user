@@ -101,7 +101,12 @@ export default function ProfilePage() {
          </div>
 
          <div className={root.card}>
-            <ReferralTables level1={refData?.level1} level2={refData?.level2} />
+            <ReferralTables
+               level1={refData?.level1}
+               level2={refData?.level2}
+               level1_percent={refData?.level1_percent}
+               level2_percent={refData?.level2_percent}
+            />
          </div>
       </div>
    );
