@@ -101,7 +101,7 @@ export default function CasesPage() {
                      <header className={s.cardHead}>
                         <h2 className={s.name}>{c.name}</h2>
                         <div className={s.badges}>
-                           {c?.type?.type && <span className={s.badge}>{c.type.type}</span>}
+                           {c?.type?.type && <span className={s.badgeType}>{c.type.type}</span>}
                            {isTimed && availableFrom && Date.now() < +availableFrom && (
                               <span className={`${s.badge} ${s.badgeOutline}`}>с {fmt(availableFrom)}</span>
                            )}
@@ -115,7 +115,6 @@ export default function CasesPage() {
                      </header>
 
                      <div className={s.meta}>
-                        <div className={s.price}>${c.price_usd}</div>
                         {isLimited && (
                            <div className={s.spins}>
                               Осталось круток: <b>{c.spins_remaining}</b>
@@ -132,13 +131,14 @@ export default function CasesPage() {
                      )}
 
                      <div className={s.actions}>
+                        <div className={s.price}>${c.price_usd}</div>
                         <button
                            className={`${root.btnPrimary} ${s.btn}`}
                            onClick={() => handleSpin(c.id)}
                            disabled={disabled}
                            title={disabled ? disabledReason : ""}
                         >
-                           {spinningId === c.id ? "Крутим…" : disabled ? "не доступен" : "Крутить"}
+                           {spinningId === c.id ? "Открываем…" : disabled ? "не доступен" : "Открыть"}
                         </button>
                      </div>
                   </article>

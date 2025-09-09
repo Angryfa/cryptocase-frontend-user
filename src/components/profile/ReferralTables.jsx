@@ -1,6 +1,6 @@
 import s from "../../assets/styles/ReferralTables.module.css";
 
-function Row({ u, showReferrer = false, showPercent = false }) {
+function Row({ u, showReferrer = false, showPercent = false, showAmount = false }) {
    const nick = u?.email?.includes("@") ? u.email.split("@")[0] : (u?.username || "-");
    const dt = u?.referred_at ? new Date(u.referred_at).toLocaleString("ru-RU") : "—";
 
@@ -13,11 +13,11 @@ function Row({ u, showReferrer = false, showPercent = false }) {
 
    return (
       <tr>
-         <td>{u.id}</td>
          <td>{nick}</td>
          <td>{u.email}</td>
          <td>{dt}</td>
          {showPercent && <td>{u?.percent != null ? `${Number(u.percent).toFixed(2)}%` : "—"}</td>}
+         {showAmount && <td>0$</td>}
          {showReferrer && refCell}
       </tr>
    );
@@ -31,10 +31,10 @@ export default function ReferralTables({ level1 = [], level2 = [], level1_percen
             <div className={s.tableWrap}>
                <table className={s.table}>
                   <thead>
-                     <tr><th>ID</th><th>Ник</th><th>Email</th><th>Дата</th><th>Процент</th></tr>
+                     <tr><th>Ник</th><th>Email</th><th>Дата</th><th>Процент</th><th>Доход</th></tr>
                   </thead>
                   <tbody>
-                     {level1.length ? level1.map(u => <Row key={u.id} u={u} showPercent />)
+                     {level1.length ? level1.map(u => <Row key={u.id} u={u} showPercent showAmount />)
                         : <tr><td colSpan="5" className={s.empty}>Нет данных</td></tr>}
                   </tbody>
                </table>
@@ -47,11 +47,11 @@ export default function ReferralTables({ level1 = [], level2 = [], level1_percen
                <table className={s.table}>
                   <thead>
                      <tr>
-                        <th>ID</th><th>Ник</th><th>Email</th><th>Дата</th><th>Процент</th><th>Пригласил (L1)</th>
+                        <th>Ник</th><th>Email</th><th>Дата</th><th>Процент</th><th>Доход</th><th>Пригласил (L1)</th>
                      </tr>
                   </thead>
                   <tbody>
-                     {level2.length ? level2.map(u => <Row key={`${u.id}-l2`} u={u} showReferrer showPercent />)
+                     {level2.length ? level2.map(u => <Row key={`${u.id}-l2`} u={u} showReferrer showPercent showAmount />)
                         : <tr><td colSpan="6" className={s.empty}>Нет данных</td></tr>}
                   </tbody>
                </table>

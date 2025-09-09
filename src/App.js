@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import root from "./assets/styles/Root.module.css";
 import "./assets/styles/Fonts.module.css";
 
-import LayoutDefault from "./layouts/LayoutDefault";
+import LayoutSidebar from "./layouts/LayoutSidebar";
 import LayoutNotFooter from "./layouts/LayoutNotFooter";
 import LayoutFooterFixed from "./layouts/LayoutFooterFixed";
 import LayoutClean from "./layouts/LayoutClean";
@@ -27,9 +27,9 @@ function App() {
             <Router>
                <ScrollToTop />
                <Routes>
-                  {/* Базовый лэйаут: хедер + нав + футер */}
-                  <Route element={<LayoutDefault />}>
-                     <Route path="/" element={<ExplorePage />} />
+                  {/* Новый лэйаут: сайдбар */}
+                  <Route element={<LayoutSidebar />}>
+                     <Route path="/" element={<CasesPage />} />
                      <Route path="/cases" element={<CasesPage />} />
                      {/* Пример приватного роута (доступен только после логина) */}
                      <Route
