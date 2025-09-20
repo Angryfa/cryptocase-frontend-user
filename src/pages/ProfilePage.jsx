@@ -8,6 +8,7 @@ import WalletStats from "../components/profile/WalletStats";
 import ProfileForm from "../components/profile/ProfileForm";
 import ReferralSummary from "../components/profile/ReferralSummary";
 import ReferralTables from "../components/profile/ReferralTables";
+import SpinHistory from "../components/profile/SpinHistory"
 
 function nicknameFromUser(u) {
    const email = u?.email || "";
@@ -107,6 +108,10 @@ export default function ProfilePage() {
                level1_percent={refData?.level1_percent}
                level2_percent={refData?.level2_percent}
             />
+         </div>
+
+         <div className={root.card}>
+            <SpinHistory fetchUrl="/api/cases/spins/my/" />
          </div>
       </div>
    );

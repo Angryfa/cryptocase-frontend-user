@@ -1,0 +1,46 @@
+/* src/assets/styles/SpinHistory.module.css */
+.tableWrap {
+   overflow: auto;
+   border-radius: 8px;
+}
+.table {
+   width: 100%;
+   border-collapse: collapse;
+   font-size: 14px;
+}
+.table thead th {
+   text-align: left;
+   padding: 10px 12px;
+   background: #fafafa;
+   border-bottom: 1px solid #eee;
+   white-space: nowrap;
+}
+.table tbody td {
+   padding: 10px 12px;
+   border-bottom: 1px solid #f3f4f6;
+   white-space: nowrap;
+}
+.helper {
+   padding: 10px 12px;
+   color: #6b7280;
+}
+.error {
+   padding: 10px 12px;
+   color: #b91c1c;
+}
+.pagination {
+   display: flex;
+   gap: 10px;
+   justify-content: flex-end;
+   align-items: center;
+   padding-top: 12px;
+}
+.controls {
+   display: flex;
+   justify-content: flex-end;
+   margin-bottom: 8px;
+   gap: 12px;
+}
+.pageSize select {
+   margin-left: 6px;
+}

@@ -86,19 +86,6 @@ export default function WalletStats() {
             <div className={s.title}>Баланс</div>
             <div className={s.value}>${fmtUSD(profile?.balance_usd)}</div>
          </div>
-         <div className={s.stat}>
-            <div className={s.title}>Выиграно</div>
-            <div className={s.value}>${fmtUSD(profile?.won_total_usd)}</div>
-         </div>
-         <div className={s.stat}>
-            <div className={s.title}>Проиграно</div>
-            <div className={s.value}>${fmtUSD(profile?.lost_total_usd)}</div>
-         </div>
-         <div className={s.stat}>
-            <div className={s.title}>Выведено (всего)</div>
-            <div className={s.value}>${fmtUSD(profile?.withdrawn_total_usd)}</div>
-         </div>
-
          {/* Кэшбэк */}
          <div className={s.stat}>
             <div className={s.title}>Доступный кэшбэк</div>
@@ -115,6 +102,21 @@ export default function WalletStats() {
                </button>
             )}
          </div>
+         {/* Кэшбэк конец */}
+         <div className={s.stat}>
+            <div className={s.title}>Выиграно</div>
+            <div className={s.value}>${fmtUSD(profile?.won_total_usd)}</div>
+         </div>
+         <div className={s.stat}>
+            <div className={s.title}>Проиграно</div>
+            <div className={s.value}>${fmtUSD(profile?.lost_total_usd)}</div>
+         </div>
+         <div className={s.stat}>
+            <div className={s.title}>Выведено (всего)</div>
+            <div className={s.value}>${fmtUSD(profile?.withdrawn_total_usd)}</div>
+         </div>
+
+
       </div>
    );
 }

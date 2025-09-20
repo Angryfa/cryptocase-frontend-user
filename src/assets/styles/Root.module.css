@@ -1,7 +1,7 @@
 :root {
-   --bg: #FAFAF8;
-   --fg: #21211F;
-   --line: #ECEBE6;
+   --bg: #fafaf8;
+   --fg: #21211f;
+   --line: #ecebe6;
    --primary: #64acff;
    --primary-600: #64acff;
    --primary-700: #4d9fff;
@@ -65,4 +65,27 @@
    color: #fff;
    border-color: var(--primary);
 }
-.btnPrimary:hover { background: var(--primary-700); }
+.btnPrimary:hover {
+   background: var(--primary-700);
+}
+
+/* Варианты кнопок */
+.btnSm {
+   padding: 6px 10px;
+   font-size: 14px;
+   line-height: 1.2;
+}
+
+/* Ссылка-кнопка (без подложки, как текстовая) */
+.btnLink {
+   border: 0;
+   background: transparent;
+   padding: 0;
+   color: var(--primary-600);
+   cursor: pointer;
+   text-decoration: none;
+}
+.btnLink:hover {
+   color: var(--primary-700);
+   text-decoration: underline;
+}
