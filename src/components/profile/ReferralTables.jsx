@@ -1,5 +1,10 @@
 import s from "../../assets/styles/ReferralTables.module.css";
 
+function fmt2(n) {
+   const v = Number(n ?? 0);
+   return Number.isFinite(v) ? v.toFixed(2) : "0.00";
+}
+
 function Row({ u, showReferrer = false, showPercent = false, showAmount = false }) {
    const nick = u?.email?.includes("@") ? u.email.split("@")[0] : (u?.username || "-");
    const dt = u?.referred_at ? new Date(u.referred_at).toLocaleString("ru-RU") : "—";
@@ -16,8 +21,8 @@ function Row({ u, showReferrer = false, showPercent = false, showAmount = false 
          <td>{nick}</td>
          <td>{u.email}</td>
          <td>{dt}</td>
-         {showPercent && <td>{u?.percent != null ? `${Number(u.percent).toFixed(2)}%` : "—"}</td>}
-         {showAmount && <td>0$</td>}
+         {showPercent && <td className={s.num}>{u?.percent != null ? `${fmt2(u.percent)}%` : "—"}</td>}
+         {showAmount && <td className={s.num}>{u?.earned_usd != null ? `$${fmt2(u.earned_usd)}` : "$0.00"}</td>}
          {showReferrer && refCell}
       </tr>
    );
@@ -31,7 +36,7 @@ export default function ReferralTables({ level1 = [], level2 = [], level1_percen
             <div className={s.tableWrap}>
                <table className={s.table}>
                   <thead>
-                     <tr><th>Ник</th><th>Email</th><th>Дата</th><th>Процент</th><th>Доход</th></tr>
+                     <tr><th>Ник</th><th>Email</th><th>Дата</th><th className={s.num}>Процент</th><th className={s.num}>Доход</th></tr>
                   </thead>
                   <tbody>
                      {level1.length ? level1.map(u => <Row key={u.id} u={u} showPercent showAmount />)
@@ -47,7 +52,7 @@ export default function ReferralTables({ level1 = [], level2 = [], level1_percen
                <table className={s.table}>
                   <thead>
                      <tr>
-                        <th>Ник</th><th>Email</th><th>Дата</th><th>Процент</th><th>Доход</th><th>Пригласил (L1)</th>
+                        <th>Ник</th><th>Email</th><th>Дата</th><th className={s.num}>Процент</th><th className={s.num}>Доход</th><th>Пригласил (L1)</th>
                      </tr>
                   </thead>
                   <tbody>
