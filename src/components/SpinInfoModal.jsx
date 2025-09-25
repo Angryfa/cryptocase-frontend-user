@@ -78,7 +78,7 @@ export default function SpinInfoModal({ open, onClose, data }) {
                      {verifying ? "Проверяем…" : "Проверить локально"}
                   </button>
 
-                  {data?.spinId && (
+                  {/* {data?.spinId && (
                      <a
                         className={root.btn}
                         href={`/provably-fair/verify?serverSeed=${encodeURIComponent(data.serverSeed || "")}&serverSeedHash=${encodeURIComponent(data.serverSeedHash || "")}&clientSeed=${encodeURIComponent(data.clientSeed || "")}&nonce=${encodeURIComponent(data.nonce || "")}&rollDigest=${encodeURIComponent(data.rollDigest || "")}&rngValue=${encodeURIComponent(data.rngValue || "")}&spinId=${encodeURIComponent(data.spinId)}`}
@@ -86,14 +86,14 @@ export default function SpinInfoModal({ open, onClose, data }) {
                      >
                         Открыть страницу верификации
                      </a>
-                  )}
+                  )} */}
                </div>
 
                {result && (
                   <div style={{ marginTop: 10, padding: 10, borderRadius: 8, background: "#f6f7fb" }}>
-                     <div><b>Хеш совпал:</b> {result.hashOk ? "Да" : "Нет"}</div>
-                     <div><b>HMAC совпал:</b> {result.digestOk ? "Да" : "Нет"}</div>
-                     <div><b>RNG совпал:</b> {result.rngOk ? "Да" : "Нет"}</div>
+                     <div><b>Хеш совпал:</b> {result.hashOk ? "Да ✅" : "Нет"}</div>
+                     <div><b>HMAC совпал:</b> {result.digestOk ? "Да ✅" : "Нет"}</div>
+                     <div><b>RNG совпал:</b> {result.rngOk ? "Да ✅" : "Нет"}</div>
                      <details style={{ marginTop: 8 }}>
                         <summary>Тех. детали</summary>
                         <div><b>SHA256(serverSeed) локально:</b> <code>{result.computedHash}</code></div>
